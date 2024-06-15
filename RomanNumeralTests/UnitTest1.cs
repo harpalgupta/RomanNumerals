@@ -31,4 +31,16 @@ public class Tests
         var result = sut.ConvertToRoman(1000);
         Assert.AreEqual("M", result);
     }
+
+    [Test]
+    [TestCase(2022,"MMXXII")]
+    [TestCase(1990, "MCMXC")]
+    [TestCase(2008, "MMVIII")]
+    [TestCase(1666, "MDCLXVI")]
+    public void SomeTest(int integerRepresentation, string expectedRomanNumerals)
+    {
+        var sut = new Services();
+        var result = sut.ConvertToRoman(integerRepresentation);
+        Assert.AreEqual(expectedRomanNumerals, result);
+    }
 }
