@@ -10,16 +10,29 @@ public class Services
         }
 
         var output = string.Empty;
+
+        var remainder = decimalNumber;
         
-        
-        if (decimalNumber >= 1000)
+        if (remainder >= 1000)
         {
-            var result = decimalNumber / 1000;
+            var result = remainder / 1000;
             for (int i = 0; i < result; i++)
             {
                 output += blah[1000];
             }
+            remainder -= result*1000; //remove what have converted
         }
+
+        if (remainder >= 500)
+        {
+            var result = remainder / 500;
+            for (int i = 0; i < result; i++)
+            {
+                output += blah[500];
+            }
+            remainder -= result * 500; //remove what have converted
+        }
+
 
         return output;
     }
