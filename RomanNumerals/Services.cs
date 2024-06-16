@@ -101,7 +101,7 @@ public class Services
         if (remainder >= divisor )
         {
             result = remainder / divisor;
-            if(result <= 3 && remainder % divisor != 0)
+            if(result <= 3)
             {
                 for (int i = 0; i < result; i++)
                 {
