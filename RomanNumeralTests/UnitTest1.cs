@@ -37,7 +37,7 @@ public class Tests
     [TestCase(1990, "MCMXC")]
     [TestCase(2008, "MMVIII")]
     [TestCase(1666, "MDCLXVI")]
-    public void SomeTest(int integerRepresentation, string expectedRomanNumerals)
+    public void TestUsingExamples(int integerRepresentation, string expectedRomanNumerals)
     {
         var sut = new Services();
         var result = sut.ConvertToRoman(integerRepresentation);
