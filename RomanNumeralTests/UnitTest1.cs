@@ -10,20 +10,14 @@ public class Tests
     }
 
     [Test]
-    [TestCase (1)]
-    [TestCase (3999)]
-    public void MethodTakesIntegerBetween1And3999(int number)
+    [TestCase (0)]
+    [TestCase (4000)]
+    public void MethodDoesNotTakeOfRangeNumbers(int number)
     {
         var sut = new Services();
-        Assert.DoesNotThrow(()=>sut.ConvertToRoman(number));
+        Assert.Throws<ArgumentOutOfRangeException>(()=>sut.ConvertToRoman(number));
     }
     
-    [Test]
-    public void OutOfRangeThrows()
-    {
-        var sut = new Services();
-        Assert.Throws<ArgumentOutOfRangeException>(()=>sut.ConvertToRoman(4000));
-    }
     [Test]
     public void FourDigitThousandsCovert()
     {
@@ -42,5 +36,16 @@ public class Tests
         var sut = new Services();
         var result = sut.ConvertToRoman(integerRepresentation);
         Assert.AreEqual(expectedRomanNumerals, result);
+    }
+
+
+    [Test]
+    public void TestSpecialConversion()
+    {
+
+        var sut = new Services();
+        var result = sut.HandleSpecialConversion(900);
+        Assert.AreEqual("CM", result);
+
     }
 }
