@@ -37,4 +37,15 @@ public class Tests
         var result = sut.ConvertToRoman(integerRepresentation);
         Assert.AreEqual(expectedRomanNumerals, result);
     }
+
+
+    [Test]
+    public void TestSpecialConversion()
+    {
+
+        var sut = new Services();
+        var result = sut.HandleSpecialConversion(900);
+        Assert.AreEqual("CM", result);
+
+    }
 }
